@@ -1,11 +1,13 @@
 def merge_sort(arr): 
     if len(arr) <= 1: #If length of array is 1 or less then that it will return the same array
         return arr
+    
     mid = len(arr)//2 #Finding mid
     left_half = arr[:mid] #Left portion 
     right_half = arr[mid:] #right portion
     left_half = merge_sort(left_half) #Recursion method to break elements of left half
     right_half = merge_sort(right_half) #Recursion method to break elements of right half
+    
     return merge(left_half,right_half) #Passing arguments to sort array 
 
 def merge(left,right):
@@ -16,6 +18,7 @@ def merge(left,right):
         if left[i] < right[j]: #If left element is smaller
             new.append(left[i]) #Add left element
             i += 1 #Move left pointer
+       
         else: #If right element is smaller or equal
             new.append(right[j]) #Add right element
             j += 1 #Move right pointer
